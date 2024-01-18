@@ -1,0 +1,9 @@
+cs50
+Flask
+Flask-Session
+gunicorn
+matplotlib
+mpld3
+psycopg2
+requests
+seaborn

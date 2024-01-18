@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    &mdash; Pie Chart
+{% endblock %}
+
+{% block main %}
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-auto mt-2 mb-5">
+                <h2>{{ year }}</h2>
+                <h3>Annual Structure of Expenditures</h3>
+                <!-- The |safe filter is used within templates to mark a string as safe HTML -->
+                {{ mpld3_plot|safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
