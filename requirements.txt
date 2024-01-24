@@ -1,7 +1,0 @@
-cs50
-Flask
-Flask-Session
-matplotlib
-mpld3
-requests
-seaborn
