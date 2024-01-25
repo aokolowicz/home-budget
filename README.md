@@ -1,7 +1,8 @@
-# Home Budget Manager
+# Home Budget
+
+### Live Demo: https://juzew.pythonanywhere.com
 
 ### Video Demo:  https://youtu.be/lWV6yXo6JOg
-
 
 ## Description
 
@@ -12,9 +13,9 @@ The application allows users to manage their expenses efficiently by adding, del
 
 - **`app.py`**: This file contains the main Flask application where different routes are defined to handle various functionalities of the budgeting app.
 
-- **`helpers.py`**: This file contains utility functions used across the application for database operations, data processing, and other helper functions. It also contains the names of the months used for all routes.
+- **`config.py`**: Configuration file for managing database credentials.
 
-- **`budget.db`**: SQLite database file storing user-specific expense records and categories.
+- **`helpers.py`**: This file contains utility functions used across the application for database operations, data processing, and other helper functions. It also contains the names of the months used for all routes.
 
 - **`static/`**
   - `themes.css`: This folder contains the CSS file that adds the styles and themes for the frontend of the application.
@@ -45,16 +46,17 @@ The `app.py` file handles different routes:
 ### Design choices
 
 Certain design choices have been made to ensure better code organization, separation of concerns, and user experience. The project utilizes Flask, a lightweight Python web framework, due to its simplicity and ease of use.
-SQLite is chosen as the database management system for its simplicity and compatibility with Flask applications. Jinja2 templating allows for dynamic rendering of HTML templates which was necessary to get different views depending on the user's activity.
-The use of Flask, Jinja2 templates, and SQLite database for backend operations allows for a scalable and user-friendly budget management system.
 
-The project employs Flask's session management to maintain user authentication and session data throughout the application. The `session` variable is utilized not only for user identification but also to store crucial information like years of expenses stored in the database and the current year selected by the user.
+MySQL is chosen as the database management system, provided by PythonAnywhere, for its scalability and compatibility with Flask applications. Jinja2 templating allows for dynamic rendering of HTML templates, which was necessary to get different views depending on the user's activity.
+
+The use of Flask, Jinja2 templates, and MySQL database for backend operations allows for a scalable and user-friendly budget management system.
+
+The project employs Flask's session management to maintain user authentication and session data throughout the application. The `session` variable is utilized not only for user identification but also to store crucial information like years of expenses stored in the database and the current year and month selected by the user.
 These session variables ensure secure user login, access control, and persistent user-specific data across various routes. This functionality enables users to seamlessly navigate through their budget data while preserving their authentication status and personalized settings.
 
-Behind this application is a SQLite database `budget.db` file, used as the basis for storing expense-related data. This database file organizes and manages user-specific expense records, categories, and user authentication details efficiently.
+Behind this application is a MySQL database hosted on PythonAnywhere, used as the basis for storing expense-related data. This database organizes and manages user-specific expense records, categories, and user authentication details efficiently.
 
 The project integrates Bootstrap 5.3.1 to ensure a responsive and visually appealing user interface. This version of Bootstrap enhances the project's frontend presentation, ensuring compatibility across various devices and browsers while maintaining a modern and intuitive layout.
-
 
 ## Features
 
@@ -73,17 +75,38 @@ Secure user authentication system to safeguard personal financial data. Users ca
 5. **Yearly Overview.**
 Provides a comprehensive yearly visualization of expenses, allowing users to analyze their spending habits and plan budgets effectively.
 
-
-## For Your Own Usage
-
-### Prerequisites
+## Prerequisites
 
 Ensure you have Python installed on your machine. Additionally, install the required libraries by running:
 
 ```bash
-pip install Flask Flask-Session cs50 matplotlib seaborn
+pip install Flask Flask-Session Flask-SQLAlchemy matplotlib mpld3 python-dotenv seaborn SQLAlchemy Werkzeug
 ```
+
+## Configuration & Setting Up `.env`
+
+1. **Create a `.env` File**: In the root of your project, create a file named `.env`.
+
+2. **Add Environment Variables**: Inside the `.env` file, add your sensitive environment variables, such as database credentials, in the following format:
+
+   ```bash
+   DB_USERNAME='your_database_username'
+   DB_PASSWORD='your_database_password'
+   DB_HOSTNAME='your_database_hostname'
+   DB_NAME='your_database_name'
+   ```
+
+3. **Load Environment Variables**: To load the environment variables into your application, use the `python-dotenv` library.
+
+4. **Usage in `app.py` or WSGI File**: In your `app.py` or WSGI file, include the following code at the top to load the environment variables (path adjustments may be needed):
+   
+   ```python
+   from dotenv import load_dotenv
+
+   # Load environment variables from .env file
+   load_dotenv()
+   ```
 
 ## Notes
 
-This project was developed as a part of [CS50 course](https://cs50.harvard.edu/x/2023/). Acknowledgments to all the creators of this course, which is an amazing introduction to the world of IT. This final project was a unique and challenging test of the skills acquired during the course.
+This project was developed as a part of [CS50 course](https://cs50.harvard.edu/x/2023/). Acknowledgments to all the creators of this course, which is an amazing introduction to the world of IT.

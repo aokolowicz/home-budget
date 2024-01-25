@@ -1,0 +1,25 @@
+.form-control:focus {
+    border-color: var(--bs-success);
+    box-shadow: 0 0 0 0.2rem var(--bs-success-border-subtle);
+  }
+  
+  .btn-text {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+  
+  g.mpld3-xaxis, g.mpld3-xaxis {
+    display: none;
+    }
+  
+  g.mpld3-yaxis, g.mpld3-yaxis {
+    display: none;
+    }
+  
+  .x-scrollable-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent table cells from wrapping */
+  }

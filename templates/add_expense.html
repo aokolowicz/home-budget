@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    &mdash; Add Expense
+{% endblock %}
+
+{% block main %}
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-auto mt-3 mb-5">
+                <h3>Add new expense</h3>
+                <form action="/add" method="post">
+                    <div class="mx-auto my-2" style="width: 200px;">
+                        <input autocomplete="off" class="form-control" id="date" name="date" type="date">
+                    </div>
+                    <div class="mx-auto my-2" style="width: 200px;">
+                        <select class="form-control form-select" id="category_id" name="category_id">
+                            <option selected value="0">Category</option>
+                            {% for cat_tuple in cat_list %}
+                                <option value="{{ cat_tuple[0] }}">{{ cat_tuple[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="input-group mx-auto my-2" style="width: 200px;">
+                        <span class="input-group-text">$</span>
+                        <input autocomplete="off" class="form-control" id="expense" name="expense" placeholder="Expense" type="number" min="0" step="0.01">
+                        <button class="btn btn-success" type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

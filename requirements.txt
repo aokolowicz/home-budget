@@ -1,0 +1,9 @@
+Flask
+Flask-Session
+Flask-SQLAlchemy
+matplotlib
+mpld3
+python-dotenv
+seaborn
+SQLAlchemy
+Werkzeug
