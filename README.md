@@ -1,8 +1,10 @@
 # Home Budget
 
-### Live Demo: https://juzew.pythonanywhere.com
+&#x25BC; **Check out the demo video below!**
 
-### Video Demo:  https://youtu.be/lWV6yXo6JOg
+https://github.com/user-attachments/assets/aa11cf35-c9a2-4984-8cec-71ca393b64f3
+
+### Live Demo: https://juzew.pythonanywhere.com
 
 ## Description
 
